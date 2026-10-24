@@ -1,6 +1,6 @@
 # PosePoint3D
 
-A public release candidate of a standalone **Godot 4 editor plugin** for calibrating a 3D character's position and orientation against reusable action markers (chairs, beds, counters, etc.). Designed for projects using an `AnimationPlayer`, without a required NPC framework.
+A standalone **Godot 4 editor plugin** for calibrating a 3D character's position and orientation against reusable action markers (chairs, beds, counters, etc.). Designed for projects using an `AnimationPlayer`, without a required NPC framework.
 
 ## Features
 
@@ -15,7 +15,7 @@ A public release candidate of a standalone **Godot 4 editor plugin** for calibra
 
 ## Compatibility
 
-Release status: **RC1 (Godot 4.7.2 headless editor import, runtime smoke tests and automated editor integration tests passed; visual mouse-driven editor testing is still pending)**.
+Release status: **1.0.0 (Godot 4.7.2)**. Automated editor loading, runtime smoke tests, editor integration workflow, and visible GUI startup passed. Manual mouse-driven gizmo interaction is not yet independently verified.
 
 The plugin targets **Godot 4.7.2**. Older 4.x versions use similar APIs, but they have not yet been validated. Test the plugin in a disposable project before production use.
 
@@ -34,7 +34,6 @@ Calibration resources are written to `res://posepoint3d_profiles/`. Commit these
 ## Demo
 
 For executable checks and recorded results, see [validation report](tests/VALIDATION.md).
-
 
 This repository is also a minimal Godot project. Open `demo/demo.tscn`, enable the plugin, select `DemoCharacter`, `PoseMarker` and the `sit` animation. Calibrate against the sample chair. No third-party assets are required.
 
