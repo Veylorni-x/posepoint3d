@@ -5,6 +5,9 @@ const Marker = preload("res://addons/posepoint3d/pose_point.gd")
 const Placement = preload("res://addons/posepoint3d/pose_runtime.gd")
 
 func _initialize() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
 	var profile: PosePoint3DProfile = Profile.new()
 	var character := Node3D.new()
 	var marker: Marker3D = Marker.new()
