@@ -9,4 +9,7 @@
 
 This repository begins with a complete first release. Subsequent releases will document actual public bug fixes and enhancements.
 
-- Validation: source review and structural checks completed; interactive editor checks pending.
+- Validation: Godot 4.7.2 headless editor loading, script smoke tests, and isolated editor integration workflow passed. Visual mouse-driven checking remains pending.
+- Fixed a malformed node declaration in the demo scene.
+- Deferred smoke tests until scene tree initialization.
+- Guarded the AnimationPlayer playback-position query when no animation is active.
