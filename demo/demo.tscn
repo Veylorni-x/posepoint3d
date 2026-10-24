@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://addons/posepoint3d/pose_point.gd" id="1_point"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(12, 0.2, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape_floor"]
+size = Vector3(12, 0.2, 12)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_person"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_chair"]
+size = Vector3(0.9, 0.8, 0.9)
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {"times": PackedFloat32Array(0), "transitions": PackedFloat32Array(1), "update": 0, "values": [Vector3(0, 0, 0)]}
+
+[sub_resource type="Animation" id="Animation_sit"]
+resource_name = "sit"
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {"times": PackedFloat32Array(0), "transitions": PackedFloat32Array(1), "update": 0, "values": [Vector3(0, -0.6, 0)]}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_demo"]
+_data = {"idle": SubResource("Animation_idle"), "sit": SubResource("Animation_sit")}
+
+[node name="Demo" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 1
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape_floor")
+
+[node name="DemoCharacter" type="Node3D" parent="."]
+position = Vector3(-2, 0, 0)
+
+[node name="Body" type="MeshInstance3D" parent="DemoCharacter"]
+position = Vector3(0, 1.05, 0)
+mesh = SubResource("CapsuleMesh_person")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DemoCharacter"]
+libraries = {"": SubResource("AnimationLibrary_demo")}
+
+[node name="FootMarker" type="Marker3D" parent="DemoCharacter"]
+
+[node name="Chair" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 0)
+mesh = SubResource("BoxMesh_chair")
+
+[node name="PoseMarker" type="Marker3D" parent="." groups=["posepoint3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("1_point")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 4, 9)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-50, -30, 0)

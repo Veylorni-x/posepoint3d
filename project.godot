@@ -1,0 +1,13 @@
+config_version=5
+
+[application]
+config/name="PosePoint3D Demo"
+run/main_scene="res://demo/demo.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/posepoint3d/plugin.cfg")
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

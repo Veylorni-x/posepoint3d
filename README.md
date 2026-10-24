@@ -9,11 +9,13 @@ A public release candidate of a standalone **Godot 4 editor plugin** for calibra
 - Preview a selected animation pose on the **existing scene character**, then reposition it with Godot's built-in 3D gizmo.
 - Optional ground snapping (collision layer 1).
 - Save the offset relative to the marker as a `.tres` resource; scale is excluded.
-- Reuse the same pose on matching marker `template_key` values.
+- Reuse pose offsets between matching markers within a saved scene profile using their `template_key` values.
 - End preview restores the scene character and animation state rather than saving a temporary offset into the map.
 - Optional runtime utility to apply saved offsets.
 
 ## Compatibility
+
+Release status: **RC1 (source and static review complete; Godot editor and interactive UI smoke checks pending)**.
 
 The plugin targets **Godot 4.7.2**. Older 4.x versions use similar APIs, but they have not yet been validated. Test the plugin in a disposable project before production use.
 
