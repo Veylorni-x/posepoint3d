@@ -254,7 +254,7 @@ func _save_character_state() -> void:
 	_previous = {
 		"global": _active_character.global_transform,
 		"player_animation": _player.current_animation,
-		"player_position": _player.current_animation_position,
+		"player_position": _player.current_animation_position if not _player.current_animation.is_empty() else 0.0,
 		"player_playing": _player.is_playing(),
 		"player_process_mode": _player.process_mode,
 		"nodes": {},
