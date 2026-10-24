@@ -26,6 +26,10 @@ The editor end-to-end checks used a **temporary test plugin in an isolated clone
 2. Smoke test read global transforms before the SceneTree was initialized. Deferred assertions until idle initialization.
 3. Preview state capture accessed `AnimationPlayer.current_animation_position` even when no animation had been started. Guarded the query.
 
+## Visible GUI startup
+
+A **second clean clone** of the public repository was launched with the real Windows Godot 4.7.2 graphical editor, without enabling any temporary test plugin. The default demo scene loaded and rendered its simple character, marker and environment. No editor runtime script errors were reported during the observed session. The user's editor layout had its right-hand dock hidden in the screenshot, so the visible PosePoint3D dock controls could not be inspected in that capture. Headless editor integration had already verified successful dock creation and the calibration workflow.
+
 ## Remaining acceptance check
 
 Mouse-driven GUI interaction in a visible Godot editor (dragging with the gizmo, toggling the snap-to-ground control, and visual inspection) has not been independently completed. Engine-executed editor automation covered the related save/restore and ground-ray code paths.
