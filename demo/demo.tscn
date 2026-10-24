@@ -67,7 +67,7 @@ libraries = {"": SubResource("AnimationLibrary_demo")}
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 0)
 mesh = SubResource("BoxMesh_chair")
 
-[node name="PoseMarker" type="Marker3D" parent="." groups=["posepoint3d"]
+[node name="PoseMarker" type="Marker3D" parent="." groups=["posepoint3d"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 script = ExtResource("1_point")
 
